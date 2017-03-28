@@ -23,7 +23,7 @@ public class Snowboarder : MonoBehaviour {
     }*/
     // Update is called once per frame
     void Update () {
-      
+		rb.isKinematic = false;
        // Pressing 'A' will move to the left
         if (Input.GetKey(KeyCode.A))
         {
@@ -36,6 +36,20 @@ public class Snowboarder : MonoBehaviour {
             transform.Translate(Vector3.right * Time.deltaTime*5);
             //transform.Rotate(Vector3.up * -1 );
         }
+
+		if (Input.GetKey (KeyCode.W)) {
+			rb.AddRelativeForce (Vector3.forward * thrust);
+
+		} 
+
+		if (Input.GetKey (KeyCode.S)) {
+			Debug.Log ("velocity: " + rb.velocity.magnitude);
+			float stop =  (rb.velocity.magnitude / Time.deltaTime);//20;//rb.velocity.magnitude;
+			Debug.Log ("stop: " + stop);
+			rb.AddRelativeForce (Vector3.forward * -stop);
+
+			rb.isKinematic = true;
+		}
 
        if (Input.GetAxis("Mouse X") != 0)
         {
