@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Snowboarder : MonoBehaviour {
     float x;
+	public float thrust = 10;
     private int sensitivity = 10;
+	public Rigidbody rb;
 	// Use this for initialization
 	void Start () {
         x = Input.mousePosition.x;
-
+		rb = GetComponent<Rigidbody> ();
     }
 
 
@@ -42,10 +44,19 @@ public class Snowboarder : MonoBehaviour {
             transform.eulerAngles += new Vector3(0, x, 0);
         }
         
-
+		if (Input.GetKey(KeyCode.Space)) {
+			rb.AddRelativeForce (Vector3.up * thrust);
+		}
         /*  x = Input.mousePosition.x - x;
 
           transform.Rotate(Vector3.up * Time.deltaTime * x);*/
 
     }
+
+	void FixedUpdate() {
+		
+			//rb.AddRelativeForce (Vector3.up * thrust);
+		
+
+	}
 }
