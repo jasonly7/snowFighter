@@ -73,7 +73,8 @@ public class Snowboarder : MonoBehaviour {
 			rb.AddRelativeTorque (Vector3.left * torque * y);
 		}*/
         
-		if (Input.GetKey(KeyCode.Space)) {
+		if (Input.GetKeyUp(KeyCode.Space)) {
+			Debug.Log ("Jump");
 			rb.AddRelativeForce (Vector3.up * thrust);
 		}
         /*  x = Input.mousePosition.x - x;
