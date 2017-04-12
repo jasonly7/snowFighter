@@ -5,6 +5,9 @@ using UnityEngine;
 public class Shoot : MonoBehaviour {
     public Bullet bulletPrefab;
 	private int sensitivity = 10;
+
+	public Texture2D crosshairImage;
+
     // Use this for initialization
     void Start () {
 		
@@ -22,5 +25,12 @@ public class Shoot : MonoBehaviour {
 			var y = Input.GetAxis ("Mouse Y") * sensitivity;
 			transform.eulerAngles -= new Vector3 (0, 0, y);
 		}
+	}
+
+	void OnGUI()
+	{
+		float xMin = (Screen.width / 2) - (crosshairImage.width / 4 / 2) - 32;
+		float yMin = (Screen.height / 2) - (crosshairImage.height / 4 / 2);
+		GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width/4, crosshairImage.height/4), crosshairImage);
 	}
 }

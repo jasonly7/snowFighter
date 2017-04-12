@@ -5,6 +5,7 @@ using UnityEngine;
 public class Snowboarder : MonoBehaviour {
     float x;
 	public float thrust = 10;
+	public float jumpThrust = 1000;
 	public float torque = 300;
     private int sensitivity = 10;
 	public Rigidbody rb;
@@ -75,7 +76,7 @@ public class Snowboarder : MonoBehaviour {
         
 		if (Input.GetKeyUp(KeyCode.Space)) {
 			Debug.Log ("Jump");
-			rb.AddRelativeForce (Vector3.up * thrust);
+			rb.AddRelativeForce (Vector3.up * jumpThrust);
 		}
         /*  x = Input.mousePosition.x - x;
 
