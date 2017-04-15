@@ -16,6 +16,14 @@ public class CameraDirector : MonoBehaviour {
 		
 	}
 
+	public void switchToCamera1()
+	{
+		cam1.gameObject.SetActive (true);
+		cam1.enabled = true;
+		cam2.gameObject.SetActive (false);
+		cam2.enabled = false;
+	}
+
 	public void switchCamera()
 	{
 		Debug.Log ("Switch cam");
