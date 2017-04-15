@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ramp : MonoBehaviour {
-	public GameObject camDirector;
-	CameraDirector cameraDirector;
+	//public GameObject camDirector;
+	public CameraDirector cameraDirector;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,6 +17,16 @@ public class Ramp : MonoBehaviour {
 		cameraDirector.cam1.gameObject.SetActive (false);
 		cameraDirector.cam2.gameObject.SetActive (true);
 
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		Debug.Log ("On collision entered");
+		/*if (camDirector.cam1 != null)
+			Debug.Log ("cam1: " + cameraDirector.cam1);
+		else
+			Debug.Log ("cam1 is null");*/
+
+		cameraDirector.switchCamera();
 	}
 				
 	// Update is called once per frame
