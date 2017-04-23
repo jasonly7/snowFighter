@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour {
 	public CameraDirector cameraDirector;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +16,7 @@ public class Ground : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log ("On collision entered");
+		//Debug.Log ("On collision entered");
 		/*if (camDirector.cam1 != null)
 			Debug.Log ("cam1: " + cameraDirector.cam1);
 		else
