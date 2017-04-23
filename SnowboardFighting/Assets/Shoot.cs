@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour {
     public Bullet bulletPrefab;
-	private int sensitivity = 10;
+	public float sensitivity = 10;
 
 	public Texture2D crosshairImage;
 

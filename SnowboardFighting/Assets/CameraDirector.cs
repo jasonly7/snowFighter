@@ -6,6 +6,7 @@ public class CameraDirector : MonoBehaviour {
 	public Camera cam1;
 	public Camera cam2;
 	public GameObject focusObj;
+	public GameObject targetObj;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +15,7 @@ public class CameraDirector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//cam1.transform.forward = targetObj.transform.position - cam1.transform.position;
 	}
 
 	public void switchToCamera1()
