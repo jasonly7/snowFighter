@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour {
 		Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
 		if (enemyRigidbody != null) {
 			if (enemyRigidbody.gameObject.name == "Enemy")
-				enemyRigidbody.AddForce ((Vector3.up) * 500);
+				enemyRigidbody.AddForce ((Vector3.up) * 400);
 		}
 	}
 	
