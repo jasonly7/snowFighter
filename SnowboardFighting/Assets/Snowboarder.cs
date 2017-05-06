@@ -34,16 +34,19 @@ public class Snowboarder : MonoBehaviour {
        // Pressing 'A' will move to the left
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime*5);
+			rb.AddRelativeForce (Vector3.left * thrust);
+            //transform.Translate(Vector3.left * Time.deltaTime*thrust);
           //  transform.Rotate(Vector3.up * 1 );
         }
         // Pressing 'D' will move to the right
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime*5);
+			rb.AddRelativeForce (Vector3.right * thrust);
+            //transform.Translate(Vector3.right * Time.deltaTime*thrust);
             //transform.Rotate(Vector3.up * -1 );
         }
 
+		rb.AddRelativeForce (Vector3.forward * thrust);
 		if (Input.GetKey (KeyCode.W)) {
 			rb.AddRelativeForce (Vector3.forward * thrust);
 
@@ -51,11 +54,14 @@ public class Snowboarder : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.S)) {
 			Debug.Log ("velocity: " + rb.velocity.magnitude);
-			float stop = (rb.velocity.magnitude / Time.deltaTime);//20;//rb.velocity.magnitude;
-			Debug.Log ("stop: " + stop);
-			rb.AddRelativeForce (Vector3.forward * -stop);
-			rb.drag +=0.02f;
-			//rb.isKinematic = true;
+			if (rb.velocity.magnitude > 0 )
+			{
+				float stop = (rb.velocity.magnitude / Time.deltaTime);//20;//rb.velocity.magnitude;
+				Debug.Log ("stop: " + stop);
+				rb.AddRelativeForce (Vector3.forward * -stop);
+				rb.drag +=0.02f;
+				//rb.isKinematic = true;
+			}
 		} else {
 			rb.drag = 0;
 		}
