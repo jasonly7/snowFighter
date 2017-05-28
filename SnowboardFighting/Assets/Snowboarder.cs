@@ -83,6 +83,7 @@ public class Snowboarder : MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.Space)) {
 			Debug.Log ("Jump");
 			rb.AddRelativeForce (Vector3.up * jumpThrust);
+			transform.localEulerAngles = new Vector3 (0, 0, 0);
 		}
         /*  x = Input.mousePosition.x - x;
 
